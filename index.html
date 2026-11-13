@@ -138,6 +138,22 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
 .back{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint);text-decoration:none}
 .bundle{background:var(--paper);color:var(--night);border-radius:32px;padding:30px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
 @media(max-width:720px){.bundle{grid-template-columns:1fr}}
+
+.guar{font-family:var(--mono);font-size:12px;line-height:1.5;opacity:.85}
+.guar a{color:inherit}
+.save{display:inline-block;background:var(--pink);color:#fff;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 12px;margin-left:10px;vertical-align:middle}
+.peek{margin:26px 0 0;max-width:420px}
+.peek img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff}
+.peek figcaption{font-family:var(--mono);font-size:12px;color:var(--mist);margin-top:8px;line-height:1.5}
+.doc{max-width:760px;padding-top:48px}
+.doc h2{margin-top:18px}
+.doc h3{margin-top:36px}
+.doc p,.doc li{color:var(--mist);margin-top:12px;max-width:68ch}
+.doc ul{padding-left:22px;margin:0}
+.doc a:not(.back){color:var(--mint)}
+.doc .upd{font-family:var(--mono);font-size:13px;color:var(--mist);margin-top:12px}
+footer a{color:var(--mist)}footer a:hover{color:var(--paper)}
+footer .fl{display:flex;gap:18px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -154,6 +170,7 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
       <p class="eyebrow">Digital toolkits for one-person businesses</p>
       <h1 style="margin-top:18px">Do the work of a team. <span style="color:var(--mint)">Without hiring one.</span></h1>
       <p class="sub">Five toolkits that turn your AI assistant into a sales writer, a content planner, an automation builder and an operations manager. Written for creators, local businesses, agencies and freelancers.</p>
+      <p class="eyebrow" style="margin-top:18px;color:var(--mist)">Works with ChatGPT, Gemini and any AI chat tool</p>
       <div class="cta"><a class="btn main" href="https://whop.com/checkout/plan_7HyYr7vgA7ORu" target="_blank" rel="noopener">Start with the $47 toolkit</a><a class="btn" href="https://whop.com/checkout/plan_DuTpRSOQy251l" target="_blank" rel="noopener">Free 7-prompt sample</a></div>
       <p class="tag"><span>Build it.</span><span>Automate it.</span><span>Grow it.</span></p>
     </div>
@@ -167,7 +184,7 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
   </header>
 
   <section id="toolkit">
-    <div class="head"><p class="eyebrow">Start here</p><h2>85 specialist prompts. Copy, paste, use. $47 once.</h2><p>A 23-page toolkit of prompts that turn your AI assistant into a sales writer, a pricing coach, a content planner and 82 other specialists. Three of them are below, free, so you can test before you buy.</p></div>
+    <div class="head"><p class="eyebrow">Start here</p><h2>85 specialist prompts. Copy, paste, use. $47 once.</h2><p>Ready-made prompts that turn your AI assistant into a sales writer, a pricing coach, a content planner and 82 other specialists. Fill in the brackets, paste, and get a usable first draft. Three of them are below, free, so you can test before you buy.</p></div>
     <div class="offers" style="margin-bottom:18px">
       <article class="offer c"><span class="kind">Free preview · The Reply Writer</span><p style="font-family:var(--mono);font-size:13px;line-height:1.6;color:var(--paper)">You write replies for me. My tone: [warm / direct]. Here are 3 replies I wrote before: [paste]. Now write a reply to this message: [paste]. Under 60 words, answer the question first, end with one clear next step.</p></article>
       <article class="offer c"><span class="kind">Free preview · The Offer Sharpener</span><p style="font-family:var(--mono);font-size:13px;line-height:1.6;color:var(--paper)">You are an offer strategist. My business: [what]. My customer: [who]. Their biggest problem: [problem]. Write 3 offer options, each with a one-line promise, what is included, a suggested price, and the objection I should expect.</p></article>
@@ -175,16 +192,26 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
     </div>
     <div class="offers">
       <article class="offer b" style="grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center">
-        <div><span class="kind">The 85 Specialist Toolkit</span><h3 style="margin-top:8px">85 prompts in 8 groups, 3 worked examples, a weekly routine, and the setup that makes answers sound like you.</h3>
+        <div><span class="kind">85 Prompts for Solo Business Owners</span><h3 style="margin-top:8px">85 prompts in 8 groups, 3 worked examples, a weekly routine, and the setup that makes answers sound like you.</h3>
         <p style="margin-top:12px;opacity:.9">Offers and pricing · Sales and outreach · Content and social · Copy and websites · Customer replies · Operations and automation · Planning and writing · Creators, local business and freelancers</p>
-        <p style="margin-top:12px;font-family:var(--mono);font-size:13px;opacity:.85">Instant PDF. Works with any AI assistant. Refund if the file does not arrive or open.</p></div>
+        <p style="margin-top:12px;font-family:var(--mono);font-size:13px;opacity:.85">Instant PDF. Works with any AI assistant. Refund if the file does not arrive or open. <a href="#terms" style="color:inherit">Refund and licence details</a>.</p></div>
         <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start"><div class="price">$47</div><a class="btn" href="https://whop.com/checkout/plan_7HyYr7vgA7ORu" target="_blank" rel="noopener">Get the toolkit</a><a class="btn" style="background:transparent;color:var(--paper);border-color:var(--paper)" href="https://whop.com/checkout/plan_DuTpRSOQy251l" target="_blank" rel="noopener">Free 7-prompt sample</a></div>
       </article>
     </div>
+    <figure class="peek"><img src="img/peek-t.jpg" width="828" height="1171" loading="lazy" alt="A page from the 85 Prompts PDF: five offer and pricing prompts, each with a fill-in-the-brackets prompt box"><figcaption>A page from the PDF: Offers and pricing, five of the 85 prompts.</figcaption></figure>
   </section>
 
   <section id="set">
     <div class="head"><p class="eyebrow">Then, in order</p><h2>Stay visible. Get clients. Remove the repeat work. Run the business.</h2><p>Four more toolkits, each with its own page. Buy the one you need now, or take the whole set.</p></div>
+    <p class="eyebrow" style="margin-bottom:14px">Which one is for me?</p>
+    <div class="ladder" style="margin-bottom:34px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+      <a class="rung" href="#content"><span class="n">I want to</span><b>Post every week without a blank caption</b><span>The 30-Day Content Engine, $37</span></a>
+      <a class="rung" href="#clients"><span class="n">I want to</span><b>Get the next client without sounding pushy</b><span>The Client Getting Kit, $67</span></a>
+      <a class="rung" href="#automations"><span class="n">I want to</span><b>Stop answering the same messages by hand</b><span>The Automation Blueprints, $67</span></a>
+      <a class="rung" href="#os"><span class="n">I want to</span><b>Get my admin under control</b><span>The Business OS, $97</span></a>
+      <a class="rung" href="https://whop.com/checkout/plan_7HyYr7vgA7ORu" target="_blank" rel="noopener"><span class="n">I want to</span><b>Do everything faster with my AI assistant</b><span>85 Prompts for Solo Business Owners, $47</span></a>
+      <a class="rung" href="https://whop.com/checkout/plan_WBYwKx50Th559" target="_blank" rel="noopener"><span class="n">I want</span><b>The whole path, at the lowest price</b><span>The Everything Bundle, $147</span></a>
+    </div>
     <div class="ladder">
       <a class="rung" href="#content"><span class="n">Upsell 1 · Stay visible</span><b>The 30-Day Content Engine</b><span>A month of posts planned, 60 hooks, 10 scripts, 6 carousels.</span><span class="p">$37</span></a>
       <a class="rung" href="#clients"><span class="n">Upsell 2 · Get clients</span><b>The Client Getting Kit</b><span>12 outreach scripts, follow-ups, call guide, proposal, 10 objections.</span><span class="p">$67</span></a>
@@ -192,8 +219,8 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
       <a class="rung" href="#os"><span class="n">Upsell 4 · Run the business</span><b>The Business OS</b><span>Rhythm, scorecard, 12 procedures, 10 client templates.</span><span class="p">$97</span></a>
     </div>
     <div class="bundle" style="margin-top:18px">
-      <div><p class="eyebrow" style="color:var(--ultra)">Everything Bundle</p><h3 style="margin-top:8px">All five toolkits. $315 separately.</h3><p style="margin-top:8px;color:#4a4780">Toolkit, Content Engine, Client Getting Kit, Automation Blueprints and Business OS, delivered together.</p></div>
-      <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start"><div class="price">$147</div><a class="btn" style="background:var(--night);border-color:var(--night);color:var(--paper)" href="https://whop.com/checkout/plan_WBYwKx50Th559" target="_blank" rel="noopener">Get everything</a></div>
+      <div><p class="eyebrow" style="color:var(--ultra)">Everything Bundle</p><h3 style="margin-top:8px">All five toolkits. $315 separately.<span class="save">Save $168</span></h3><p style="margin-top:8px;color:#4a4780">85 Prompts, Content Engine, Client Getting Kit, Automation Blueprints and Business OS, delivered together.</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start"><div class="price">$147</div><a class="btn" style="background:var(--night);border-color:var(--night);color:var(--paper)" href="https://whop.com/checkout/plan_WBYwKx50Th559" target="_blank" rel="noopener">Get everything</a><p class="guar" style="color:#4a4780">Refund if the file does not arrive or open. <a href="#terms">Details</a></p></div>
     </div>
   </section>
 
@@ -216,7 +243,7 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
   <section id="how">
     <div class="head"><p class="eyebrow">How it works</p><h2>Pay once. Download. Use it today.</h2></div>
     <div class="steps">
-      <div class="step"><h3>Pick a toolkit</h3><p>Start with the $47 toolkit, or the one page that matches this week’s problem.</p></div>
+      <div class="step"><h3>Pick a toolkit</h3><p>Start with the 85 Prompts at $47, or the one that matches this week’s problem.</p></div>
       <div class="step"><h3>Pay on Whop</h3><p>Card or local payment methods. The file appears on your Whop page right after.</p></div>
       <div class="step"><h3>Fill in the brackets</h3><p>Paste your business details first, then any prompt or template. Edit until it sounds like you.</p></div>
       <div class="step"><h3>Ask if you are stuck</h3><p>Email agentwise.hello@gmail.com. Questions get an answer within an hour.</p></div>
@@ -228,7 +255,7 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
       <div><b>Written, not generated and dumped</b><span>Every toolkit was planned, written and checked by one person. Brackets, not filler.</span></div>
       <div><b>Honest by design</b><span>No invented testimonials, no fake discounts, no countdown timers. New business, real files.</span></div>
       <div><b>Within an hour</b><span>Every question gets an answer within an hour.</span></div>
-      <div><b>Refund if it fails</b><span>If a file does not arrive or does not open, you get your money back.</span></div>
+      <div><b>Refund if it fails</b><span>If a file does not arrive or does not open, you get your money back. <a href="#terms" style="color:inherit">Details</a>.</span></div>
     </div>
     <div class="head" style="margin-top:64px;margin-bottom:0"><p class="eyebrow">Who it is for</p>
       <div class="who"><span>New creators</span><span>Instagram creators</span><span>Small local businesses</span><span>Agencies and freelancers</span></div>
@@ -237,13 +264,15 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
 
   <section id="faq">
     <div class="head"><p class="eyebrow">Questions</p><h2>Straight answers.</h2></div>
-    <details><summary>What exactly do I get?</summary><p>PDF files, delivered on Whop right after payment. The Toolkit is 23 pages, the Content Engine 14, the Client Getting Kit 16, the Automation Blueprints 18, the Business OS 15. All original, all with brackets you fill in.</p></details>
-    <details><summary>Which one should I start with?</summary><p>The $47 Toolkit if you want faster work on everything. The Client Getting Kit if you need the next client. The Automation Blueprints if you answer the same messages every day. The Business OS if you are drowning in admin. The Bundle if you want the whole path.</p></details>
+    <details><summary>What exactly do I get?</summary><p>PDF files, delivered on Whop right after payment. The 85 Prompts is 23 pages, the Content Engine 14, the Client Getting Kit 16, the Automation Blueprints 18, the Business OS 15. All original, all with brackets you fill in.</p></details>
+    <details><summary>Which one should I start with?</summary><p>The 85 Prompts ($47) if you want faster work on everything. The Client Getting Kit if you need the next client. The Automation Blueprints if you answer the same messages every day. The Business OS if you are drowning in admin. The Bundle if you want the whole path.</p></details>
+    <details><summary>Which AI tools do the prompts work with?</summary><p>Any AI chat assistant that takes typed instructions, for example ChatGPT or Gemini, free or paid. You copy a prompt, fill in the brackets and paste it in.</p></details>
     <details><summary>Do I need a paid AI tool?</summary><p>No. The prompts work with any AI assistant, including free ones. The Content Engine, the Kit and the OS work with no AI at all.</p></details>
     <details><summary>Is there a discount for buying more than one?</summary><p>Yes, the Everything Bundle is $147 for all five, which is $315 separately. There are no other discounts or sales.</p></details>
     <details><summary>Can I see results or reviews?</summary><p>Not yet. Agentwise is new, so there are no reviews on this page. Rather than invent any, the free 7-prompt sample lets you judge the quality before you pay.</p></details>
-    <details><summary>Can I share or resell the files?</summary><p>They are for your own business. Please do not share or resell them. The free sample you can send to anyone.</p></details>
+    <details><summary>Can I share or resell the files?</summary><p>You can use the prompts and templates in your own business, including to produce work for your own clients. You may not resell, share or republish the files themselves. The free sample you can send to anyone. Full wording is in the <a href="#terms" style="color:var(--mint)">Terms</a>.</p></details>
     <details><summary>What if a file does not open?</summary><p>Email agentwise.hello@gmail.com and you get a fresh copy within an hour, or a refund if it still fails.</p></details>
+    <details><summary>What data do you collect?</summary><p>This site has no sign-up form, no cookies and no analytics. Payment and delivery happen on Whop. See the <a href="#privacy" style="color:var(--mint)">Privacy page</a>.</p></details>
   </section>
 
   <section id="start">
@@ -252,6 +281,7 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
       <h2>Pick the problem you want gone this week.</h2>
       <p>Start with the $47 toolkit, open one of the four pages above, or take the whole set for $147. Questions get an answer within an hour.</p>
       <div class="row"><a class="btn main" href="https://whop.com/checkout/plan_7HyYr7vgA7ORu" target="_blank" rel="noopener">Get the $47 toolkit</a><a class="btn" href="https://whop.com/checkout/plan_WBYwKx50Th559" target="_blank" rel="noopener">Everything, $147</a><button class="btn copy" id="copy" type="button">agentwise.hello@gmail.com</button></div>
+      <p class="guar">Refund if the file does not arrive or open. <a href="#terms">Refund and licence details</a>.</p>
       <span class="copy" id="copyNote" aria-live="polite" style="min-height:1.4em"></span>
     </div>
   </section>
@@ -262,12 +292,13 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
     <a class="back" href="#home">← All products</a>
     <div class="up" style="margin-top:22px">
       <div>
-        <p class="eyebrow">Upsell 1 · 14-page PDF</p>
+        <p class="eyebrow">Upsell 1 · Plan a month of posts</p>
         <h2 style="margin-top:12px">The 30-Day Content Engine</h2>
         <p style="font-size:22px;margin-top:16px;color:var(--paper)">A month of posts, planned. You just fill in the brackets.</p>
         <p style="color:var(--mist);font-size:19px;margin-top:14px;max-width:60ch">Most people do not have a content problem. They have a blank-caption problem. This gives you the plan, the first lines and the scripts, so Sunday takes 20 minutes and the week is covered.</p>
         <p class="eyebrow" style="margin-top:30px">What is inside</p>
         <div class="inside"><div><b>The four pillars</b><span>Teach, proof, behind the scenes, offer. The 40/20/20/20 rule that keeps you useful and still sells.</span></div><div><b>The 30-day calendar</b><span>Pillar, format, post idea and call to action for every day. Swap freely.</span></div><div><b>60 hooks</b><span>Six styles, ten each: curiosity, problem, result, how-to, list, contrarian.</span></div><div><b>10 short video scripts</b><span>30 to 45 seconds, with what to show on screen.</span></div><div><b>6 carousel outlines</b><span>Eight slides each. Slide 1 hooks, slide 8 asks.</span></div><div><b>Captions, hashtags, routine</b><span>Four caption formulas, a hashtag rule, the 80-minute weekly routine and the one-idea-five-posts map.</span></div></div>
+        <figure class="peek"><img src="img/peek-c.jpg" width="828" height="1171" loading="lazy" alt="a page from the Content Engine PDF: the four content pillars"><figcaption>A page from the PDF: the four content pillars.</figcaption></figure>
         <p class="eyebrow" style="margin-top:30px">Who it is for</p>
         <p style="margin-top:8px;max-width:60ch">Creators, small local businesses, freelancers and agencies on Instagram, TikTok, Facebook or X.</p>
       </div>
@@ -277,7 +308,7 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
         <ul><li>Instant PDF download</li><li>Works with any AI assistant, or none</li><li>Refund if the file does not arrive or open</li></ul>
         <a class="btn" style="background:var(--paper);border-color:var(--paper);color:var(--night);align-self:stretch" href="https://whop.com/checkout/plan_k8mOt39WL6ubr" target="_blank" rel="noopener">Get it now</a>
         <a class="btn" style="border-color:var(--paper);color:var(--paper);align-self:stretch" href="https://whop.com/checkout/plan_WBYwKx50Th559" target="_blank" rel="noopener">Or everything, $147</a>
-        <p style="font-family:var(--mono);font-size:12px;opacity:.8">Payment through Whop. The file is delivered on the Whop page right after purchase.</p>
+        <p style="font-family:var(--mono);font-size:12px;opacity:.8">Payment through Whop. The file is delivered on the Whop page right after purchase. <a href="#terms" style="color:inherit">Refund and licence details</a>.</p>
       </aside>
     </div>
   </section>
@@ -287,12 +318,13 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
     <a class="back" href="#home">← All products</a>
     <div class="up" style="margin-top:22px">
       <div>
-        <p class="eyebrow">Upsell 2 · 16-page PDF</p>
+        <p class="eyebrow">Upsell 2 · Win your next client</p>
         <h2 style="margin-top:12px">The Client Getting Kit</h2>
         <p style="font-size:22px;margin-top:16px;color:var(--paper)">Get the next client without feeling pushy.</p>
         <p style="color:var(--mist);font-size:19px;margin-top:14px;max-width:60ch">Everything between "I need clients" and "approved, paid". Specific scripts that name one real thing about the person, a follow-up that adds value instead of nagging, and a call guide that ends with an honest close.</p>
         <p class="eyebrow" style="margin-top:30px">What is inside</p>
         <div class="inside"><div><b>Niche picker and one-liner</b><span>Choose who, then say it in one sentence. With the test that tells you if it works.</span></div><div><b>12 outreach scripts</b><span>Cold DMs, cold emails, warm follow-ups, group replies, creator collabs, partner pitches, and the replies to "how much?" and "send me info".</span></div><div><b>The 3-step follow-up</b><span>Day 2 adds something, day 5 asks one question, day 10 closes cleanly. Then you stop.</span></div><div><b>The discovery call guide</b><span>20 minutes, 10 questions, good-fit signs, when to say no, the close.</span></div><div><b>Proposal and pricing table</b><span>A one-page proposal they can approve with one word, and the three-tier table.</span></div><div><b>10 objections, answered</b><span>"Too expensive", "let me think", "I can do it with AI", and seven more, answered calmly.</span></div></div>
+        <figure class="peek"><img src="img/peek-k.jpg" width="828" height="1171" loading="lazy" alt="a page from the Client Getting Kit PDF: outreach scripts with fill-in brackets"><figcaption>A page from the PDF: outreach scripts.</figcaption></figure>
         <p class="eyebrow" style="margin-top:30px">Who it is for</p>
         <p style="margin-top:8px;max-width:60ch">Freelancers, agencies, consultants and creators selling to businesses.</p>
       </div>
@@ -302,7 +334,7 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
         <ul><li>Instant PDF download</li><li>Includes the weekly pipeline tracker</li><li>Refund if the file does not arrive or open</li></ul>
         <a class="btn" style="background:var(--paper);border-color:var(--paper);color:var(--night);align-self:stretch" href="https://whop.com/checkout/plan_bJSB6dU7Q96Bv" target="_blank" rel="noopener">Get it now</a>
         <a class="btn" style="border-color:var(--paper);color:var(--paper);align-self:stretch" href="https://whop.com/checkout/plan_WBYwKx50Th559" target="_blank" rel="noopener">Or everything, $147</a>
-        <p style="font-family:var(--mono);font-size:12px;opacity:.8">Payment through Whop. The file is delivered on the Whop page right after purchase.</p>
+        <p style="font-family:var(--mono);font-size:12px;opacity:.8">Payment through Whop. The file is delivered on the Whop page right after purchase. <a href="#terms" style="color:inherit">Refund and licence details</a>.</p>
       </aside>
     </div>
   </section>
@@ -312,12 +344,13 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
     <a class="back" href="#home">← All products</a>
     <div class="up" style="margin-top:22px">
       <div>
-        <p class="eyebrow">Upsell 3 · 18-page PDF</p>
+        <p class="eyebrow">Upsell 3 · Remove repeat work</p>
         <h2 style="margin-top:12px">The Automation Blueprints</h2>
         <p style="font-size:22px;margin-top:16px;color:var(--paper)">Ten automations, step by step, every message written for you.</p>
         <p style="color:var(--mist);font-size:19px;margin-top:14px;max-width:60ch">Each blueprint is described so clearly you can hand it to any tool, any freelancer or your own AI assistant and get the same thing built. Trigger, steps, messages word for word, the checks before you switch it on, and the edge cases.</p>
         <p class="eyebrow" style="margin-top:30px">What is inside</p>
         <div class="inside"><div><b>1. First reply to every DM</b><span>With the hand-over rule that sends the real questions to you.</span></div><div><b>2. Booking confirmation and reminders</b><span>Day before, two hours before, reschedule in one tap.</span></div><div><b>3. Lead capture to one sheet</b><span>Every enquiry in one place, one alert, nobody forgotten.</span></div><div><b>4 to 7. Follow-ups, onboarding, reviews, invoices</b><span>Quote follow-up sequence, new client onboarding, review request, invoice chase.</span></div><div><b>8 to 10. Content, reports, no-shows</b><span>Publishing pipeline, Monday report with five numbers, no-show re-booking.</span></div><div><b>Build your own</b><span>The blank blueprint template and the prompt that drafts one for any task.</span></div></div>
+        <figure class="peek"><img src="img/peek-a.jpg" width="828" height="1171" loading="lazy" alt="a page from the Automation Blueprints PDF: how to use the blueprints"><figcaption>A page from the PDF: how to use the blueprints.</figcaption></figure>
         <p class="eyebrow" style="margin-top:30px">Who it is for</p>
         <p style="margin-top:8px;max-width:60ch">Anyone who answers the same messages every day: salons, clinics, coaches, freelancers, small shops, agencies.</p>
       </div>
@@ -327,7 +360,7 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
         <ul><li>Instant PDF download</li><li>Works with WhatsApp, Instagram, Sheets and any connector</li><li>Refund if the file does not arrive or open</li></ul>
         <a class="btn" style="background:var(--paper);border-color:var(--paper);color:var(--night);align-self:stretch" href="https://whop.com/checkout/plan_JkcNW3AKnlHEP" target="_blank" rel="noopener">Get it now</a>
         <a class="btn" style="border-color:var(--paper);color:var(--paper);align-self:stretch" href="https://whop.com/checkout/plan_WBYwKx50Th559" target="_blank" rel="noopener">Or everything, $147</a>
-        <p style="font-family:var(--mono);font-size:12px;opacity:.8">Payment through Whop. The file is delivered on the Whop page right after purchase.</p>
+        <p style="font-family:var(--mono);font-size:12px;opacity:.8">Payment through Whop. The file is delivered on the Whop page right after purchase. <a href="#terms" style="color:inherit">Refund and licence details</a>.</p>
       </aside>
     </div>
   </section>
@@ -337,12 +370,13 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
     <a class="back" href="#home">← All products</a>
     <div class="up" style="margin-top:22px">
       <div>
-        <p class="eyebrow">Upsell 4 · 15-page PDF</p>
+        <p class="eyebrow">Upsell 4 · Run the business</p>
         <h2 style="margin-top:12px">The Business OS</h2>
         <p style="font-size:22px;margin-top:16px;color:var(--paper)">The system that runs a one-person business, so you can take a day off.</p>
         <p style="color:var(--mist);font-size:19px;margin-top:14px;max-width:60ch">A business is a few meetings with yourself, repeated. This is the rhythm, the eight numbers to watch, the twelve procedures, and the ten messages you send most, written once.</p>
         <p class="eyebrow" style="margin-top:30px">What is inside</p>
         <div class="inside"><div><b>The operating rhythm</b><span>Daily 15 minutes, Monday planning, Friday review, monthly money, quarterly direction.</span></div><div><b>The scorecard</b><span>Eight numbers filled in every Friday. If one is red two weeks running, that is next week’s job.</span></div><div><b>12 standard procedures</b><span>Onboarding, delivery, invoicing, support, content, leads, reviews, scope change, saying no, weekly review, monthly money, handover.</span></div><div><b>10 client message templates</b><span>Status update, delays both ways, delivery, scope quote, saying no, price rise, paused work, testimonial ask, holiday.</span></div><div><b>The business profile</b><span>The document that makes every AI answer sound like you.</span></div><div><b>The client intake form</b><span>Ten questions, copy into any form tool.</span></div></div>
+        <figure class="peek"><img src="img/peek-o.jpg" width="828" height="1171" loading="lazy" alt="a page from the Business OS PDF: the weekly scorecard table"><figcaption>A page from the PDF: the weekly scorecard.</figcaption></figure>
         <p class="eyebrow" style="margin-top:30px">Who it is for</p>
         <p style="margin-top:8px;max-width:60ch">Freelancers, agencies and small business owners who are the whole company.</p>
       </div>
@@ -352,17 +386,51 @@ footer{padding-block:48px 56px;display:flex;justify-content:space-between;gap:20
         <ul><li>Instant PDF download</li><li>Edit the brackets, follow it for a month, then change it</li><li>Refund if the file does not arrive or open</li></ul>
         <a class="btn" style="background:var(--paper);border-color:var(--paper);color:var(--night);align-self:stretch" href="https://whop.com/checkout/plan_n8R3EOZZ3HAMp" target="_blank" rel="noopener">Get it now</a>
         <a class="btn" style="border-color:var(--paper);color:var(--paper);align-self:stretch" href="https://whop.com/checkout/plan_WBYwKx50Th559" target="_blank" rel="noopener">Or everything, $147</a>
-        <p style="font-family:var(--mono);font-size:12px;opacity:.8">Payment through Whop. The file is delivered on the Whop page right after purchase.</p>
+        <p style="font-family:var(--mono);font-size:12px;opacity:.8">Payment through Whop. The file is delivered on the Whop page right after purchase. <a href="#terms" style="color:inherit">Refund and licence details</a>.</p>
       </aside>
     </div>
   </section>
 </div>
-  <footer><span>Agentwise · Build it. Automate it. Grow it.</span><span>Online, worldwide</span></footer>
+<div class="view" id="v-terms">
+  <section class="doc">
+    <a class="back" href="#home">← Back to Agentwise</a>
+    <h2>Terms, refunds and licence</h2>
+    <p class="upd">Last updated 13 November 2026</p>
+    <h3>What you are buying</h3>
+    <p>Digital PDF files (toolkits, prompts, templates and guides). Nothing is shipped. Payment and delivery go through Whop, and the file appears on your Whop page right after payment.</p>
+    <h3>Refunds</h3>
+    <ul><li>If the file does not arrive or will not open, email agentwise.hello@gmail.com. You get a fresh copy within an hour, or a refund if it still fails.</li><li>Refunds are paid back to the original payment method through Whop.</li></ul>
+    <h3>Licence: what you can do</h3>
+    <ul><li>Use the prompts and templates in your own business.</li><li>Use them to produce work for your own clients.</li><li>Edit the brackets and adapt the wording to your voice.</li></ul>
+    <h3>Licence: what you cannot do</h3>
+    <ul><li>Resell, share, post or republish the files, or parts of them, as your own product or as a download.</li><li>Pass the files to other people. The free 7-prompt sample is the exception: send it to anyone.</li></ul>
+    <h3>No promises about results</h3>
+    <p>These are working tools. What you earn or achieve depends on your business and how you use them. Nothing here is a guarantee of income, clients or sales, and nothing here is legal, financial or tax advice. Check every number, date and claim an AI assistant gives you before you use it.</p>
+    <h3>Contact</h3>
+    <p>agentwise.hello@gmail.com. Questions get an answer within an hour.</p>
+  </section>
+</div>
+<div class="view" id="v-privacy">
+  <section class="doc">
+    <a class="back" href="#home">← Back to Agentwise</a>
+    <h2>Privacy</h2>
+    <p class="upd">Last updated 13 November 2026</p>
+    <h3>This website</h3>
+    <p>This page has no sign-up form, no cookies and no analytics. It loads two fonts from Google Fonts, so Google may see your IP address when the page loads. If this changes, this page will be updated first.</p>
+    <h3>When you buy or get the free sample</h3>
+    <p>You do this on Whop, not on this site. Whop collects and processes your payment and account details under its own terms and privacy policy. Agentwise does not see your card number.</p>
+    <h3>When you email us</h3>
+    <p>If you write to agentwise.hello@gmail.com, we use your email address and message only to answer you. We do not sell or share them.</p>
+    <h3>Questions or deletion</h3>
+    <p>Email agentwise.hello@gmail.com and we will reply within an hour.</p>
+  </section>
+</div>
+  <footer><span>Agentwise · Build it. Automate it. Grow it.</span><span class="fl"><a href="#terms">Terms</a><a href="#privacy">Privacy</a><span>Online, worldwide</span></span></footer>
 </main>
 
 <script>
 (function(){
-  var views=['home','content','clients','automations','os'];
+  var views=['home','content','clients','automations','os','terms','privacy'];
   function show(){
     var h=(location.hash||'#home').slice(1); if(views.indexOf(h)<0)h='home';
     views.forEach(function(v){var el=document.getElementById('v-'+v); if(el) el.classList.toggle('on',v===h)});
