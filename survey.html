@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Agentwise · 5-minute review</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0C0A2B;--deep:#14113F;--ultra:#2B3CFF;--pink:#FF3D8B;--mint:#5CF2C2;--paper:#F3F1FF;--mist:#A9A6D6;--line:#2A2670;
+  --display:'Bricolage Grotesque','Arial Black',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,Menlo,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--night);color:var(--paper);font-family:var(--display);font-size:18px;line-height:1.5;overflow-x:hidden;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.shell{position:relative;z-index:1;max-width:720px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding-block:max(18px,env(safe-area-inset-top,0px)) 0}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:24px;letter-spacing:-.04em}
+.brand svg{width:34px;height:34px}
+.count{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}
+.bar{height:6px;border-radius:999px;background:var(--line);margin-top:16px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--mint),var(--ultra) 60%,var(--pink));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+main{flex:1;display:flex;align-items:center;padding-block:28px}
+.step{width:100%;animation:in .5s cubic-bezier(.2,.8,.2,1) both}
+.step.out{animation:out .22s ease both}
+@keyframes in{from{opacity:0;transform:translateY(26px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes out{to{opacity:0;transform:translateY(-18px)}}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+h1{font-weight:800;letter-spacing:-.035em;line-height:1.04;font-size:clamp(30px,6.4vw,50px);margin:12px 0 0;text-wrap:balance;outline:none}
+.help{color:var(--mist);margin:14px 0 0;max-width:56ch}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;font:inherit;font-weight:800;font-size:19px;letter-spacing:-.015em;color:var(--paper);background:rgba(20,17,63,.82);border:2px solid var(--line);border-radius:18px;padding:15px 18px;cursor:pointer;transition:transform .15s ease,border-color .15s ease,background .15s ease;animation:in .45s cubic-bezier(.2,.8,.2,1) both}
+.opt:hover{transform:translateX(4px);border-color:var(--mist)}
+.opt .k{flex:none;width:28px;height:28px;border-radius:9px;border:2px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:var(--mist);transition:all .15s}
+.opt[aria-pressed=true]{border-color:var(--mint);background:#1b1750}
+.opt[aria-pressed=true] .k{background:var(--mint);border-color:var(--mint);color:var(--night)}
+.scale{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap}
+.dot{flex:1 1 44px;min-width:44px;aspect-ratio:1;max-width:76px;border-radius:50%;border:2px solid var(--line);background:rgba(20,17,63,.82);color:var(--paper);font:inherit;font-weight:800;font-size:20px;cursor:pointer;transition:transform .18s cubic-bezier(.2,1.4,.4,1),background .15s,border-color .15s;animation:in .45s cubic-bezier(.2,.8,.2,1) both}
+.dot:hover{transform:scale(1.08);border-color:var(--mist)}
+.dot[aria-pressed=true]{background:var(--mint);border-color:var(--mint);color:var(--night);transform:scale(1.12)}
+.scale.wide .dot{flex-basis:40px;min-width:40px;font-size:16px}
+.ends{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--mist);margin-top:10px;letter-spacing:.06em;text-transform:uppercase}
+textarea,input[type=text],input[type=email]{width:100%;margin-top:22px;font:inherit;font-size:19px;color:var(--paper);background:rgba(20,17,63,.82);border:2px solid var(--line);border-radius:18px;padding:16px 18px;outline:none;transition:border-color .15s}
+textarea{min-height:140px;resize:vertical}
+textarea:focus,input:focus{border-color:var(--mint)}
+::placeholder{color:#6f6ca8}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-radius:999px;padding:16px 26px;border:2px solid var(--paper);cursor:pointer;background:transparent;color:var(--paper);transition:transform .15s ease,background .15s ease,opacity .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.main{background:var(--mint);border-color:var(--mint);color:var(--night)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;transform:none}
+.btn:focus-visible,.opt:focus-visible,.dot:focus-visible,a:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;bottom:0;z-index:3;padding-block:14px max(14px,env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--night) 62%,rgba(12,10,43,0))}
+.nav .hint{font-family:var(--mono);font-size:12px;color:var(--mist)}
+.err{min-height:1.5em;margin-top:12px;font-family:var(--mono);font-size:13px;color:var(--pink)}
+.gets{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:24px}
+.get{background:rgba(20,17,63,.82);border:1px solid var(--line);border-radius:20px;padding:18px;animation:in .5s cubic-bezier(.2,.8,.2,1) both}
+.get b{display:block;font-size:19px;letter-spacing:-.02em;line-height:1.2}
+.get span{color:var(--mist);font-size:16px}
+.get .n{font-family:var(--mono);font-size:12px;color:var(--pink);letter-spacing:.12em;text-transform:uppercase}
+.timer{display:flex;align-items:center;gap:22px;margin-top:24px;flex-wrap:wrap}
+.ring{position:relative;width:110px;height:110px;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:40px;font-weight:800;letter-spacing:-.04em}
+.fine{font-family:var(--mono);font-size:12px;color:var(--mist);line-height:1.6;margin-top:18px}
+.fine a,.help a{color:var(--mint)}
+.link{background:none;border:0;padding:0;font:inherit;font-family:var(--mono);font-size:13px;color:var(--mint);text-decoration:underline;cursor:pointer}
+.mark{width:120px;height:120px;border-radius:30px;background:var(--ultra);display:grid;place-items:center;margin-bottom:22px}
+.mark svg{width:70%;height:70%;overflow:visible}
+.banner{background:var(--pink);color:#fff;border-radius:14px;padding:10px 14px;font-family:var(--mono);font-size:13px;margin-bottom:16px}
+label.chk{display:flex;gap:12px;align-items:flex-start;margin-top:18px;color:var(--mist);cursor:pointer}
+label.chk input{width:22px;height:22px;accent-color:var(--mint);margin-top:2px;flex:none}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+@media(max-width:640px){.nav .hint{display:none}}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="shell">
+  <header>
+    <div class="brand"><svg viewBox="30 10 160 160" aria-hidden="true"><circle cx="90" cy="100" r="40" fill="none" stroke="#F3F1FF" stroke-width="20"/><line x1="134" y1="62" x2="134" y2="138" stroke="#F3F1FF" stroke-width="20" stroke-linecap="round"/><circle cx="134" cy="30" r="11" fill="#FF3D8B"/></svg>agentwise</div>
+    <div class="count" id="count" aria-live="polite"></div>
+  </header>
+  <div class="bar" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" id="pb"><i id="bar"></i></div>
+  <main><div id="stage" style="width:100%"></div></main>
+  <div class="nav">
+    <button class="btn" id="back" type="button">Back</button>
+    <span class="hint" id="hint"></span>
+    <button class="btn main" id="next" type="button">Next</button>
+  </div>
+</div>
+<script>
+(function(){
+'use strict';
+/* ---------- settings ---------- */
+var ENDPOINT = '';   // paste the web app URL here to save answers
+var SITE     = 'https://praveen-hadoop.github.io/aiworld/';
+var SAMPLE   = 'https://whop.com/checkout/plan_DuTpRSOQy251l';
+var EBOOK    = 'downloads/Argue-With-Your-AI.pdf';
+var CLOSES   = 'Sunday 22 November';
+var KEY      = 'agentwise-review-v1';
+var reduce   = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- questions ---------- */
+var S = [
+ {id:'intro', type:'intro'},
+ {id:'ai_use', type:'choice', eyebrow:'About you', title:'How often do you use AI tools?', help:'Tools like ChatGPT or Gemini. Any answer is fine, including "not yet".', options:['Every day','A few times a week','Rarely','Not yet'], required:true},
+ {id:'role', type:'choice', eyebrow:'About you', title:'What best describes you?', options:['Freelancer or consultant','Business owner','Employee','Student','Content creator','Something else'], required:true},
+ {id:'what_it_sells', type:'timer', eyebrow:'The 10-second test', title:'Look at the site for 10 seconds.', help:'Open it, take a quick look, and come back. This shows what a stranger understands at first glance.', required:true},
+ {id:'clarity', type:'scale', eyebrow:'First impression', title:'How clear was that in the first 10 seconds?', min:1, max:5, lo:'Not clear', hi:'Very clear', required:true},
+ {id:'prompt_tried', type:'choice', eyebrow:'Try one prompt', title:'Try one free prompt, then tell us which.', help:'Three free prompts are on the site under "Start here". Copy one, fill in the brackets and paste it into any AI tool. <a href="'+SITE+'" target="_blank" rel="noopener">Open the site</a> or <a href="'+SAMPLE+'" target="_blank" rel="noopener">get the full free sample</a>.', options:['The Reply Writer','The Offer Sharpener','The Process Mapper','Another one from the free sample','I skipped this part'], required:true},
+ {id:'usefulness', type:'scale', eyebrow:'Try one prompt', title:'How useful was the answer you got?', min:1, max:5, lo:'Not useful', hi:'Very useful', required:true, skipIf:function(a){return a.prompt_tried==='I skipped this part'}},
+ {id:'better_worse', type:'long', eyebrow:'Try one prompt', title:'What was better or worse than what you normally get from AI?', placeholder:'One or two lines is plenty', skipIf:function(a){return a.prompt_tried==='I skipped this part'}},
+ {id:'trust', type:'scale', eyebrow:'Trust', title:'Would you trust this site enough to pay on it?', min:1, max:5, lo:'No', hi:'Yes, fully', required:true},
+ {id:'trust_more', type:'multi', eyebrow:'Trust', title:'What would make you trust it more?', help:'Pick all that apply.', options:['Real customer reviews','A person\'s name and face','A stronger refund promise','More sample pages','Its own web address','Active social media','Nothing, I already trust it']},
+ {id:'price_feel', type:'choice', eyebrow:'Price', title:'85 prompts for $47. How does that feel?', options:['A bargain','Fair','A bit expensive','Too expensive','I would not pay for prompts at any price'], required:true},
+ {id:'fair_price', type:'text', eyebrow:'Price', title:'What price would feel fair to you?', placeholder:'For example $19'},
+ {id:'ai_gets_wrong', type:'long', eyebrow:'The big question', title:'What is the one task you wish AI did well for you, but it never gets right?', help:'Everyone\'s answers to this become the community report.', placeholder:'The more specific, the better', required:true},
+ {id:'fix_first', type:'long', eyebrow:'The big question', title:'If you could fix one thing on the site first, what would it be?', placeholder:'Be blunt', required:true},
+ {id:'recommend', type:'scale', eyebrow:'Last rating', title:'How likely are you to recommend Agentwise to a friend who runs a small business?', min:0, max:10, lo:'Not at all', hi:'Very likely'},
+ {id:'finish', type:'finish', eyebrow:'Get the report', title:'Where should the community report go?'},
+ {id:'done', type:'done'}
+];
+
+/* ---------- state ---------- */
+var a = {}, i = 0, busy = false, started = Date.now();
+try{ var saved = JSON.parse(localStorage.getItem(KEY)||'null'); if(saved && saved.a){ a = saved.a; } }catch(e){}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify({a:a})); }catch(e){} }
+
+var stage=document.getElementById('stage'), back=document.getElementById('back'), next=document.getElementById('next'),
+    bar=document.getElementById('bar'), pb=document.getElementById('pb'), count=document.getElementById('count'), hint=document.getElementById('hint');
+
+function el(tag, attrs, kids){
+  var n=document.createElement(tag); attrs=attrs||{};
+  Object.keys(attrs).forEach(function(k){
+    if(k==='text') n.textContent=attrs[k]; else if(k==='html') n.innerHTML=attrs[k];
+    else if(k.slice(0,2)==='on') n.addEventListener(k.slice(2), attrs[k]); else n.setAttribute(k, attrs[k]);
+  });
+  (kids||[]).forEach(function(c){ if(c) n.appendChild(c); });
+  return n;
+}
+function visible(){ return S.filter(function(s){ return !(s.skipIf && s.skipIf(a)); }); }
+function questions(){ return visible().filter(function(s){ return s.type!=='intro' && s.type!=='done'; }); }
+
+function head(s, wrap){
+  if(s.eyebrow) wrap.appendChild(el('p',{class:'eyebrow',text:s.eyebrow}));
+  wrap.appendChild(el('h1',{tabindex:'-1',text:s.title,id:'q'}));
+  if(s.help) wrap.appendChild(el('p',{class:'help',html:s.help}));
+}
+
+function render(){
+  var s=S[i], w=el('div',{class:'step'});
+  if(s.type==='intro') intro(w);
+  else if(s.type==='done') done(w);
+  else{
+    head(s,w);
+    if(s.type==='choice') choice(s,w,false);
+    if(s.type==='multi')  choice(s,w,true);
+    if(s.type==='scale')  scale(s,w);
+    if(s.type==='text')   field(s,w,'input');
+    if(s.type==='long')   field(s,w,'textarea');
+    if(s.type==='timer')  timer(s,w);
+    if(s.type==='finish') finish(s,w);
+    w.appendChild(el('p',{class:'err',id:'err','aria-live':'polite'}));
+  }
+  stage.innerHTML=''; stage.appendChild(w);
+  var qs=questions(), pos=qs.indexOf(s);
+  var pct = s.type==='done' ? 100 : s.type==='intro' ? 0 : Math.round(pos/qs.length*100);
+  bar.style.width=pct+'%'; pb.setAttribute('aria-valuenow',pct);
+  count.textContent = (s.type==='intro') ? 'About 5 minutes' : (s.type==='done') ? 'Done' : (pos+1)+' of '+qs.length;
+  back.style.visibility = (i===0 || s.type==='done') ? 'hidden' : 'visible';
+  next.style.display = (s.type==='done') ? 'none' : '';
+  next.textContent = s.type==='intro' ? 'Start' : s.type==='finish' ? 'Send my answers' : 'Next';
+  next.disabled=false;
+  hint.textContent = (s.type==='long') ? '' : (s.type==='intro'||s.type==='done') ? '' : 'Enter ↵';
+  var h=document.getElementById('q'); if(h && i>0) h.focus({preventScroll:true});
+  window.scrollTo(0,0);
+}
+
+function go(d){
+  if(busy) return;
+  var j=i+d;
+  while(S[j] && S[j].skipIf && S[j].skipIf(a)) j+=d;
+  if(!S[j]) return;
+  var cur=stage.firstChild;
+  if(cur && !reduce){ busy=true; cur.classList.add('out'); setTimeout(function(){ busy=false; i=j; render(); },200); }
+  else { i=j; render(); }
+}
+function fail(msg){ var e=document.getElementById('err'); if(e) e.textContent=msg; }
+function valid(){
+  var s=S[i];
+  if(s.type==='timer' && !a.what_it_sells){ fail('Please write a line before you continue.'); return false; }
+  if(s.type==='finish'){
+    if(a.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(a.email)){ fail('That email address does not look right. Fix it or leave it empty.'); return false; }
+    if(!a.quote_ok){ fail('Please choose whether your answers can be quoted.'); return false; }
+    return true;
+  }
+  if(s.required){
+    var v=a[s.id];
+    if(v===undefined || v===null || v==='' ){ fail(s.type==='scale' ? 'Tap a number to continue.' : s.type==='choice' ? 'Pick one to continue.' : 'Please write a line before you continue.'); return false; }
+  }
+  return true;
+}
+
+/* ---------- step builders ---------- */
+function intro(w){
+  var m=el('div',{class:'mark',html:'<svg viewBox="30 10 160 160" role="img" aria-label="Agentwise mark"><circle id="rg" cx="90" cy="100" r="40" fill="none" stroke="#F3F1FF" stroke-width="20" stroke-dasharray="252"/><line id="st" x1="134" y1="138" x2="134" y2="62" stroke="#F3F1FF" stroke-width="20" stroke-linecap="round" stroke-dasharray="76"/><circle id="dt" cx="134" cy="30" r="11" fill="#FF3D8B"/></svg>'});
+  w.appendChild(m);
+  w.appendChild(el('p',{class:'eyebrow',text:'5-minute review'}));
+  w.appendChild(el('h1',{tabindex:'-1',id:'q',text:'Tear Agentwise apart. Get two things back.'}));
+  w.appendChild(el('p',{class:'help',text:'Agentwise makes AI prompt toolkits for one-person businesses. Before strangers see it, we want your honest view. Blunt answers help the most.'}));
+  var g=el('div',{class:'gets'});
+  [['Right away','Argue With Your AI','A free guide: 25 prompts that make your assistant push back instead of agreeing with you.'],
+   ['After '+CLOSES,'The community report','What everyone said AI still gets wrong for them. Only for people who answer.']].forEach(function(x,k){
+    var c=el('div',{class:'get',style:'animation-delay:'+(0.15+k*0.12)+'s'},[el('span',{class:'n',text:x[0]}),el('b',{text:x[1]}),el('span',{text:x[2]})]); g.appendChild(c);
+  });
+  w.appendChild(g);
+  w.appendChild(el('p',{class:'fine',text:'Privacy: answers are used only to improve Agentwise and write the report. Nothing is published with your name. Email is optional. Your progress is saved on this device until you send.'}));
+  if(!reduce){ setTimeout(function(){ try{
+    var rg=document.getElementById('rg'),st=document.getElementById('st'),dt=document.getElementById('dt');
+    rg.animate([{strokeDashoffset:252},{strokeDashoffset:0}],{duration:900,delay:100,fill:'backwards',easing:'cubic-bezier(.6,0,.3,1)'});
+    st.animate([{strokeDashoffset:76},{strokeDashoffset:0}],{duration:420,delay:900,fill:'backwards',easing:'ease-out'});
+    dt.animate([{opacity:0,transform:'translateY(-60px)'},{opacity:1,transform:'translateY(0)'}],{duration:520,delay:1250,fill:'backwards',easing:'cubic-bezier(.2,1.3,.4,1)'});
+  }catch(e){} },0); }
+}
+function choice(s,w,multi){
+  var box=el('div',{class:'opts',role:'group','aria-labelledby':'q'});
+  var cur = multi ? (a[s.id]||[]) : a[s.id];
+  s.options.forEach(function(o,k){
+    var on = multi ? cur.indexOf(o)>-1 : cur===o;
+    var b=el('button',{class:'opt',type:'button','aria-pressed':on?'true':'false',style:'animation-delay:'+(k*0.05)+'s'},[el('span',{class:'k',text:multi?(on?'✓':''):String.fromCharCode(65+k)}),el('span',{text:o})]);
+    b.addEventListener('click',function(){
+      fail('');
+      if(multi){
+        var arr=a[s.id]||[], p=arr.indexOf(o); if(p>-1) arr.splice(p,1); else arr.push(o);
+        a[s.id]=arr; b.setAttribute('aria-pressed',p>-1?'false':'true'); b.firstChild.textContent=p>-1?'':'✓'; save();
+      }else{
+        a[s.id]=o; save();
+        box.querySelectorAll('.opt').forEach(function(x){x.setAttribute('aria-pressed','false')}); b.setAttribute('aria-pressed','true');
+        setTimeout(function(){ go(1); }, reduce?0:260);
+      }
+    });
+    box.appendChild(b);
+  });
+  w.appendChild(box);
+}
+function scale(s,w){
+  var box=el('div',{class:'scale'+(s.max-s.min>6?' wide':''),role:'group','aria-labelledby':'q'});
+  for(var v=s.min; v<=s.max; v++){ (function(v){
+    var b=el('button',{class:'dot',type:'button',text:String(v),'aria-pressed':a[s.id]===v?'true':'false','aria-label':v+' out of '+s.max,style:'animation-delay:'+((v-s.min)*0.04)+'s'});
+    b.addEventListener('click',function(){ fail(''); a[s.id]=v; save();
+      box.querySelectorAll('.dot').forEach(function(x){x.setAttribute('aria-pressed','false')}); b.setAttribute('aria-pressed','true');
+      setTimeout(function(){ go(1); }, reduce?0:320); });
+    box.appendChild(b);
+  })(v); }
+  w.appendChild(box);
+  w.appendChild(el('div',{class:'ends'},[el('span',{text:s.lo}),el('span',{text:s.hi})]));
+}
+function field(s,w,tag){
+  var f=el(tag,{placeholder:s.placeholder||'','aria-labelledby':'q'}); if(tag==='input') f.type='text';
+  f.value=a[s.id]||'';
+  f.addEventListener('input',function(){ a[s.id]=f.value.trim(); save(); fail(''); });
+  w.appendChild(f);
+  if(tag==='textarea') w.appendChild(el('p',{class:'fine',text:'Ctrl + Enter to continue'}));
+  setTimeout(function(){ try{ f.focus({preventScroll:true}); }catch(e){} }, reduce?0:420);
+}
+function timer(s,w){
+  var row=el('div',{class:'timer'});
+  var C=2*Math.PI*46;
+  var ring=el('div',{class:'ring',html:'<svg viewBox="0 0 110 110" aria-hidden="true"><circle cx="55" cy="55" r="46" fill="none" stroke="#2A2670" stroke-width="10"/><circle id="arc" cx="55" cy="55" r="46" fill="none" stroke="#5CF2C2" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+C+'" stroke-dashoffset="0"/></svg><b id="num" aria-live="polite">10</b>'});
+  var open=el('a',{class:'btn main',href:SITE,target:'_blank',rel:'noopener',text:'Open the site'});
+  var skip=el('button',{class:'link',type:'button',text:'I have already seen it'});
+  var col=el('div',{style:'display:flex;flex-direction:column;gap:12px;align-items:flex-start'},[open,skip]);
+  row.appendChild(ring); row.appendChild(col); w.appendChild(row);
+  var ans=el('div',{hidden:''});
+  ans.appendChild(el('p',{class:'help',html:'<b style="color:var(--paper)">Now, without looking again:</b> in your own words, what does Agentwise sell, and who is it for?'}));
+  var f=el('textarea',{placeholder:'There is no wrong answer. Write what you understood.','aria-label':'What does Agentwise sell, and who is it for?'});
+  f.value=a.what_it_sells||''; f.addEventListener('input',function(){ a.what_it_sells=f.value.trim(); save(); fail(''); });
+  ans.appendChild(f); w.appendChild(ans);
+  var t=null;
+  function reveal(){ if(t) clearInterval(t); row.hidden=true; ans.hidden=false; try{ f.focus({preventScroll:true}); }catch(e){} }
+  function start(){
+    if(t) return; var left=10, arc=document.getElementById('arc'), num=document.getElementById('num');
+    arc.style.transition='stroke-dashoffset 1s linear'; arc.style.strokeDashoffset=String(C*0.1);
+    t=setInterval(function(){ left--; num.textContent=String(Math.max(left,0));
+      if(left<=0){ clearInterval(t); t=null; setTimeout(reveal,400); return; }
+      arc.style.strokeDashoffset=String(C*Math.min(1,(11-left)/10)); },1000);
+  }
+  open.addEventListener('click',start); skip.addEventListener('click',reveal);
+  if(a.what_it_sells) { row.hidden=true; ans.hidden=false; }
+}
+function finish(s,w){
+  w.appendChild(el('p',{class:'help',text:'Leave your email to get the report after '+CLOSES+'. It is optional and used for nothing else.'}));
+  var f=el('input',{type:'email',placeholder:'you@example.com (optional)',autocomplete:'email','aria-label':'Email address, optional'});
+  f.value=a.email||''; f.addEventListener('input',function(){ a.email=f.value.trim(); save(); fail(''); });
+  w.appendChild(f);
+  w.appendChild(el('p',{class:'help',text:'May we quote your answers in the report, without your name?'}));
+  var box=el('div',{class:'opts',role:'group'});
+  ['Yes, without my name','No, keep them private'].forEach(function(o,k){
+    var b=el('button',{class:'opt',type:'button','aria-pressed':a.quote_ok===o?'true':'false'},[el('span',{class:'k',text:String.fromCharCode(65+k)}),el('span',{text:o})]);
+    b.addEventListener('click',function(){ a.quote_ok=o; save(); fail(''); box.querySelectorAll('.opt').forEach(function(x){x.setAttribute('aria-pressed','false')}); b.setAttribute('aria-pressed','true'); });
+    box.appendChild(b);
+  });
+  w.appendChild(box);
+}
+var savedOk=null;
+function done(w){
+  if(savedOk===false) w.appendChild(el('div',{class:'banner',text:'Preview mode: this form is not connected yet, so these answers were not saved.'}));
+  w.appendChild(el('p',{class:'eyebrow',text:'Thank you'}));
+  w.appendChild(el('h1',{tabindex:'-1',id:'q',text:'Your guide is ready.'}));
+  w.appendChild(el('p',{class:'help',text:'Argue With Your AI: 25 prompts that make your assistant push back, test your thinking and stop agreeing with everything you say.'}));
+  var row=el('div',{style:'display:flex;gap:12px;flex-wrap:wrap;margin-top:26px'},[
+    el('a',{class:'btn main',href:EBOOK,download:'Argue-With-Your-AI.pdf',text:'Download the guide'}),
+    el('a',{class:'btn',href:SITE,target:'_blank',rel:'noopener',text:'Visit Agentwise'})]);
+  w.appendChild(row);
+  w.appendChild(el('p',{class:'fine',text: a.email ? 'The community report will be sent to '+a.email+' after the survey closes on '+CLOSES+'.' : 'You did not leave an email, so the report cannot be sent to you. The guide is yours either way.'}));
+  confetti();
+}
+
+/* ---------- send ---------- */
+function send(){
+  var payload={}; Object.keys(a).forEach(function(k){ payload[k]=Array.isArray(a[k]) ? a[k].join('; ') : a[k]; });
+  payload.submitted_at=new Date().toISOString(); payload.seconds_taken=Math.round((Date.now()-started)/1000);
+  if(!ENDPOINT){ savedOk=false; i=S.length-1; render(); return; }
+  next.disabled=true; next.textContent='Sending…'; fail('');
+  fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+    .then(function(r){ return r.json(); })
+    .then(function(j){ if(!j || j.ok!==true) throw new Error('not saved');
+      savedOk=true; try{ localStorage.removeItem(KEY); }catch(e){} i=S.length-1; render(); })
+    .catch(function(){ next.disabled=false; next.textContent='Try again';
+      fail('Your answers could not be sent. Check your connection and try again. Nothing is lost.'); });
+}
+
+/* ---------- controls ---------- */
+next.addEventListener('click',function(){
+  var s=S[i]; if(s.type==='intro'){ started=Date.now(); go(1); return; }
+  if(!valid()) return;
+  if(s.type==='finish'){ send(); return; }
+  go(1);
+});
+back.addEventListener('click',function(){ go(-1); });
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter') return;
+  var t=e.target, tag=t && t.tagName;
+  if(tag==='TEXTAREA'){ if(e.ctrlKey||e.metaKey){ e.preventDefault(); next.click(); } return; }
+  if(tag==='BUTTON'||tag==='A') return;
+  e.preventDefault(); next.click();
+});
+
+/* ---------- background motion ---------- */
+(function(){
+  var c=document.getElementById('bg'), x=c.getContext('2d'), W,H,P=[], cols=['#2B3CFF','#FF3D8B','#5CF2C2'];
+  function size(){ var d=Math.min(window.devicePixelRatio||1,2); W=c.width=innerWidth*d; H=c.height=innerHeight*d; }
+  function seed(){ P=[]; for(var k=0;k<16;k++) P.push({x:Math.random(),y:Math.random(),r:(40+Math.random()*150),c:cols[k%3],vx:(Math.random()-.5)*.00012,vy:(Math.random()-.5)*.00012,o:.05+Math.random()*.09}); }
+  function draw(){
+    x.clearRect(0,0,W,H);
+    P.forEach(function(p){ p.x+=p.vx; p.y+=p.vy; if(p.x<-.2||p.x>1.2) p.vx*=-1; if(p.y<-.2||p.y>1.2) p.vy*=-1;
+      var d=Math.min(window.devicePixelRatio||1,2), g=x.createRadialGradient(p.x*W,p.y*H,0,p.x*W,p.y*H,p.r*d);
+      g.addColorStop(0,p.c); g.addColorStop(1,'rgba(12,10,43,0)'); x.globalAlpha=p.o*2; x.fillStyle=g; x.beginPath(); x.arc(p.x*W,p.y*H,p.r*d,0,6.3); x.fill(); });
+    x.globalAlpha=1;
+    if(!reduce && !document.hidden) requestAnimationFrame(draw); else if(!reduce) setTimeout(function(){requestAnimationFrame(draw)},600);
+  }
+  size(); seed(); draw(); addEventListener('resize',function(){ size(); if(reduce) draw(); });
+})();
+
+/* ---------- finish burst ---------- */
+function confetti(){
+  if(reduce) return;
+  var c=document.getElementById('fx'), x=c.getContext('2d'), d=Math.min(window.devicePixelRatio||1,2);
+  c.width=innerWidth*d; c.height=innerHeight*d;
+  var cols=['#2B3CFF','#FF3D8B','#5CF2C2','#F3F1FF'], N=[], t0=performance.now();
+  for(var k=0;k<110;k++){ var ang=Math.random()*Math.PI*2, sp=4+Math.random()*10;
+    N.push({x:c.width/2,y:c.height*.42,vx:Math.cos(ang)*sp*d,vy:(Math.sin(ang)*sp-5)*d,r:(3+Math.random()*6)*d,c:cols[k%4]}); }
+  (function tick(now){
+    var el=now-t0; x.clearRect(0,0,c.width,c.height);
+    N.forEach(function(p){ p.vy+=.28*d; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; x.globalAlpha=Math.max(0,1-el/2600); x.fillStyle=p.c; x.beginPath(); x.arc(p.x,p.y,p.r,0,6.3); x.fill(); });
+    if(el<2600) requestAnimationFrame(tick); else x.clearRect(0,0,c.width,c.height);
+  })(t0);
+}
+
+render();
+})();
+</script>
+</body>
+</html>
